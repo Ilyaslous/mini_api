@@ -97,12 +97,14 @@ Digitally signs a piece of content (an author + a message) using a self-signed X
   "isValid": true
 
 }
+```
 
 **EXP**
-
+```json
 "isValid": true: Proves that the signature is authentic and that the auth and msg data have not been changed.
-```
+
 
 
 
 "isValid": false: Means the signature is invalid, which indicates the data was tampered with or the signature is incorrect. "
+```
