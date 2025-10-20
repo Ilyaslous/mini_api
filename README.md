@@ -1,4 +1,4 @@
-﻿# Project: Data Signing API (.NET 8)
+# Project: Data Signing API (.NET 8)
 
 This is a technical demonstration project inspired by the real-world business needs of companies specializing in digital content certification.
 
@@ -19,9 +19,10 @@ Digitally signs a piece of content (an author + a message) using a self-signed X
   "auth": "MyAuthor",
   "msg": "This is my original content"
 }
+Example Response (Body):
 
-**Response (Body):**
-```json
+JSON
+
 {
   "originalData": {
     "auth": "MyAuthor",
@@ -29,16 +30,20 @@ Digitally signs a piece of content (an author + a message) using a self-signed X
   },
   "signature": "vBPX6wAputu0VUVK792aFdnDGdueEpBotUIkih31ICKD6PozF1MnFTBSsoxrvOjtx+gdpt2o5Jlso4uYADyppc2O2UaxEGwEd+C1Ul6jY9gqy5o4sbpyBF+c2ESHcj51RoXAxdJA58fVdeBmTSfFvSUbOJyTd7OeYXbFRHm+bVaR8aDMG/D3aRteOSWVfO3pJNG8MCybnxq0Qrho7ORDVzFmSWVMn+FVG/POHQ6ENPDbrBFynPwYbLxlnL9/e4160LERsk+ICF2SohxoWKs1baFMgUZsdzpQdKurTolkwFP7+eBciNo95vViuGIA25RUc63hb/IogHhWm6IkppLxmA=="
 }
-### 2. `POST /api/signing/verify`
-**Request (Body):**
-```json
+2. POST /api/signing/verify
+Example Request (Body):
+
+JSON
+
 {
     "auth": "MyAuthor",
     "msg": "This is my original content",
     "sig":"vBPX6wAputu0VUVK792aFdnDGdueEpBotUIkih31ICKD6PozF1MnFTBSsoxrvOjtx+gdpt2o5Jlso4uYADyppc2O2UaxEGwEd+C1Ul6jY9gqy5o4sbpyBF+c2ESHcj51RoXAxdJA58fVdeBmTSfFvSUbOJyTd7OeYXbFRHm+bVaR8aDMG/D3aRteOSWVfO3pJNG8MCybnxq0Qrho7ORDVzFmSWVMn+FVG/POHQ6ENPDbrBFynPwYbLxlnL9/e4160LERsk+ICF2SohxoWKs1baFMgUZsdzpQdKurTolkwFP7+eBciNo95vViuGIA25RUc63hb/IogHhWm6IkppLxmA=="
 }
-**Response (Body):**
-```json
+Example Response (Body):
+
+JSON
+
 {
   "originalData": {
     "auth": "MyAuthor",
@@ -47,7 +52,9 @@ Digitally signs a piece of content (an author + a message) using a self-signed X
   },
   "isValid": true
 }
-**EXP**
+Understanding isValid
+The "isValid" field is the result of the cryptographic verification.
+
 "isValid": true: Proves that the signature is authentic and that the auth and msg data have not been changed.
 
-"isValid": false: Means the signature is invalid, which indicates the data was tampered with or the signature is incorrect. 
+"isValid": false: Means the signature is invalid, which indicates the data was tampered with or the signature is incorrect.
