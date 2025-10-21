@@ -21,10 +21,22 @@ namespace mini_api.Services
         }
         public bool VerifyData(string originalData, string signature)
         {
-            using var rsa = _certificate.GetRSAPublicKey();
-            var dataBytes = Encoding.UTF8.GetBytes(originalData);
-            var signatureBytes = Convert.FromBase64String(signature);
-            return rsa.VerifyData(dataBytes, signatureBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            try
+            {
+                using var rsa = _certificate.GetRSAPublicKey();
+                var dataBytes = Encoding.UTF8.GetBytes(originalData);
+                var signatureBytes = Convert.FromBase64String(signature);
+                return rsa.VerifyData(dataBytes, signatureBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
+   

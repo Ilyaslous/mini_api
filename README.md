@@ -19,6 +19,7 @@ Digitally signs a piece of content (an author + a message) using a self-signed X
   "auth": "MyAuthor",
   "msg": "This is my original content"
 }
+```
 
 **Response (Body):**
 ```json
@@ -29,6 +30,7 @@ Digitally signs a piece of content (an author + a message) using a self-signed X
   },
   "signature": "vBPX6wAputu0VUVK792aFdnDGdueEpBotUIkih31ICKD6PozF1MnFTBSsoxrvOjtx+gdpt2o5Jlso4uYADyppc2O2UaxEGwEd+C1Ul6jY9gqy5o4sbpyBF+c2ESHcj51RoXAxdJA58fVdeBmTSfFvSUbOJyTd7OeYXbFRHm+bVaR8aDMG/D3aRteOSWVfO3pJNG8MCybnxq0Qrho7ORDVzFmSWVMn+FVG/POHQ6ENPDbrBFynPwYbLxlnL9/e4160LERsk+ICF2SohxoWKs1baFMgUZsdzpQdKurTolkwFP7+eBciNo95vViuGIA25RUc63hb/IogHhWm6IkppLxmA=="
 }
+```
 ### 2. `POST /api/signing/verify`
 **Request (Body):**
 ```json
@@ -37,6 +39,7 @@ Digitally signs a piece of content (an author + a message) using a self-signed X
     "msg": "This is my original content",
     "sig":"vBPX6wAputu0VUVK792aFdnDGdueEpBotUIkih31ICKD6PozF1MnFTBSsoxrvOjtx+gdpt2o5Jlso4uYADyppc2O2UaxEGwEd+C1Ul6jY9gqy5o4sbpyBF+c2ESHcj51RoXAxdJA58fVdeBmTSfFvSUbOJyTd7OeYXbFRHm+bVaR8aDMG/D3aRteOSWVfO3pJNG8MCybnxq0Qrho7ORDVzFmSWVMn+FVG/POHQ6ENPDbrBFynPwYbLxlnL9/e4160LERsk+ICF2SohxoWKs1baFMgUZsdzpQdKurTolkwFP7+eBciNo95vViuGIA25RUc63hb/IogHhWm6IkppLxmA=="
 }
+```
 **Response (Body):**
 ```json
 {
@@ -47,6 +50,7 @@ Digitally signs a piece of content (an author + a message) using a self-signed X
   },
   "isValid": true
 }
+```
 **EXP**
 "isValid": true: Proves that the signature is authentic and that the auth and msg data have not been changed.
 
